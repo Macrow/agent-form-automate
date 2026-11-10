@@ -1,0 +1,13 @@
+packages:
+  - "."
+
+allowBuilds:
+  esbuild: true
+  sharp: true
+
+onlyBuiltDependencies:
+  - esbuild
+  - sharp
+
+overrides:
+  "@ai-sdk/provider@^4.0.0": 4.0.35

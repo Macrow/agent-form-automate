@@ -1,0 +1,14 @@
+output.txt
+node_modules
+dist
+.mastra
+.env
+.env.*
+!.env.example
+*.db
+*.db-*
+*.duckdb
+*.duckdb.wal
+.netlify
+.vercel
+.idea
