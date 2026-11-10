@@ -20,7 +20,7 @@
 
 - Agent 会话历史使用 `@mastra/memory`，并由 Mastra storage 持久化。
 - `OBSERVATIONAL_MEMORY_ENABLED` 默认启用长期对话压缩记忆；设置为 `false`、`0`、`no` 或 `off` 时关闭。
-- 关闭压缩记忆后，`LAST_MESSAGES` 控制每次加载的最近消息数，默认 `20`。
+- 关闭压缩记忆后，`MESSAGE_HISTORY_MAX_TOKENS` 控制上下文 token 预算，默认 `8000`。
 - 使用线程记忆时，调用方必须为同一会话持续提供相同的 thread ID。
 
 ## 开发与检查

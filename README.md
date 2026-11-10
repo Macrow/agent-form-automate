@@ -16,7 +16,7 @@ pnpm run dev
 
 - `OPENAI_COMPATIBLE_BASE_URL`、`OPENAI_COMPATIBLE_API_KEY`、`OPENAI_COMPATIBLE_MODEL`：OpenAI-compatible 模型网关配置。
 - `OBSERVATIONAL_MEMORY_ENABLED`：是否启用长期对话压缩记忆，默认 `true`；设为 `false`、`0`、`no` 或 `off` 时关闭。
-- `LAST_MESSAGES`：关闭 Observational Memory 后，每次加载到 Agent 上下文的最近消息数，默认 `20`。
+- `MESSAGE_HISTORY_MAX_TOKENS`：关闭 Observational Memory 后的上下文 token 预算，默认 `8000`；超出时较早的历史消息会从上下文中移除，但仍保存在存储中。旧的 `LAST_MESSAGES` 不再生效。
 - `TZ`：应用时区，默认 `Asia/Shanghai`。
 - `STORAGE_TYPE`：`libsql`（默认）或 `postgres`。
 - `LIBSQL_URL`、`LIBSQL_AUTH_TOKEN`：LibSQL 存储配置。
