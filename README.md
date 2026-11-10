@@ -23,3 +23,13 @@ pnpm run dev
 - `DATABASE_URL`、`DATABASE_SSL`：PostgreSQL 存储配置。
 
 当前没有注册任何 channel；Smart IM 及其他渠道留待后续对接。当前也不包含 Auth Prime 或其他业务鉴权集成。
+
+## CopilotKit 与会话
+
+`pnpm run dev` 自动设置 `NODE_ENV=development`，开发环境允许所有跨域来源。生产环境必须将 `FRONTEND_ORIGIN` 配置为完整的前端 origin，不能使用 `*`。CopilotKit runtime 路径为 `/copilotkit`，agent 名称为 `formAutomationAgent`。
+
+- `POST /sessions`：创建会话，返回带 UUID 的 thread。
+- `GET /sessions?page=0&perPage=20`：分页获取会话。
+- `GET /sessions/{threadId}/messages?page=0&perPage=20`：分页获取历史消息。
+
+前端为同一会话持续使用返回的 thread ID。当前固定 resource ID，不提供用户隔离或鉴权，不适合直接暴露给不受信任的用户。历史消息使用 Mastra 数据格式，前端需要转换为其 UI 所需格式；该接口不提供 AG-UI 事件重放或断线续流。
